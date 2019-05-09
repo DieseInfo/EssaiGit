@@ -1,12 +1,13 @@
 //***************************************************************************************
 /*
  Nom		:	_main.c
- But		:	mettre en oeuvre les différentes ressources du kit de développement Keil MCBSTM32
-            Résolution de l'équation ax²+bx+c = 0
-            Affichage du résultat sur l'écran LCD du kit Keil
+ But		:	mettre en oeuvre les diffÃ©rentes ressources du kit de dÃ©veloppement Keil MCBSTM32
+            RÃ©solution de l'Ã©quation axÂ²+bx+c = 0
+            Affichage du rÃ©sultat sur l'Ã©cran LCD du kit Keil
  Processeur : STM32F103RB (Arm Cortex M3, Flash 128Lo, Ram 20Ko)
- Auteur	:	Joël Pétrique
+ Auteur	:	JoÃ«l PÃ©trique
  Date		:	novembre 2018
+ VÃ©rifiÃ©	:	mai 2019
 */
 
 
@@ -18,26 +19,26 @@
 #include <math.h>						// pour la fonction math "sqrt"
 
 // Inclusion des fichiers prototypes "faits maison" du dossier "Library"
-#include "Library\LCD.h"			// nécessaire pour utiliser l'écran du kit Keil
+#include "Library\LCD.h"			// nÃ©cessaire pour utiliser l'Ã©cran du kit Keil
 
 
 
 //*****************************************************************************
-// Prototypes des fonctions développées plus bas
+// Prototypes des fonctions dÃ©veloppÃ©es plus bas
 //==============================================
 
-// Ecriture d'un texte à une position X, Y
-// Reçoit 3 paramètres :
-//        - un entier x signifiant la position X sur l'écran
+// Ecriture d'un texte Ã  une position X, Y
+// ReÃ§oit 3 paramÃ¨tres :
+//        - un entier x signifiant la position X sur l'Ã©cran
 //        - un entier y      "      "      "   Y  "     "
-//        - l'ADRESSE d'un texte à afficher
+//        - l'ADRESSE d'un texte Ã  afficher
 void EcrireXY (int x, int y, char *texte);
 
-// Ecriture d'un nombre réel à une position X, Y
-// Reçoit 3 paramètres :
-//        - un entier x signifiant la position X sur l'écran
+// Ecriture d'un nombre rÃ©el Ã  une position X, Y
+// ReÃ§oit 3 paramÃ¨tres :
+//        - un entier x signifiant la position X sur l'Ã©cran
 //        - un entier y      "      "      "   Y  "     "
-//        - une valeur réelle (type "double") à afficher
+//        - une valeur rÃ©elle (type "double") Ã  afficher
 void EcrireReelXY (int x, int y, double valeur);
 
 
@@ -54,7 +55,7 @@ int main (void)
 	a = 1;	b = 4;	c = 0;
 	delta = (b * b) - (4 * a * c);
 
-	// Calcul des racines de l'équation
+	// Calcul des racines de l'Ã©quation
 	if (delta < 0)
 	{	x1 = x2 = 0;		// juste pour ne pas avoir n'importe quoi dans x1 et x2...
 	}
@@ -68,10 +69,10 @@ int main (void)
 	}
 
 	// Affichage des resultats
-	sprintf (ligne1, "x1=%lf", x1);    // j'écris dans la chaîne de caractères (tableau de char) "ligne1"
-	EcrireXY (0, 0, ligne1);           // j'écris la chaîne "ligne1" sur l'écran du kit Keil
+	sprintf (ligne1, "x1=%lf", x1);    // j'Ã©cris dans la chaÃ®ne de caractÃ¨res (tableau de char) "ligne1"
+	EcrireXY (0, 0, ligne1);           // j'Ã©cris la chaÃ®ne "ligne1" sur l'Ã©cran du kit Keil
 
-	EcrireReelXY (0, 1, x2);           // variante avec une nouvelle fonction : j'écris le réel x2 sur l'écran du kit Keil
+	EcrireReelXY (0, 1, x2);           // variante avec une nouvelle fonction : j'Ã©cris le rÃ©el x2 sur l'Ã©cran du kit Keil
 	
 	//LCD_set_cursor (0, 0);		
 	//LCD_print (ligne1);
@@ -82,38 +83,38 @@ int main (void)
 
 
 //*****************************************************************************
-// Ecriture d'un texte à une position X, Y
-// Reçoit 3 paramètres :
-//        - un entier x signifiant la position X sur l'écran
+// Ecriture d'un texte Ã  une position X, Y
+// ReÃ§oit 3 paramÃ¨tres :
+//        - un entier x signifiant la position X sur l'Ã©cran
 //        - un entier y      "      "      "   Y  "     "
-//        - l'ADRESSE d'un texte à afficher
+//        - l'ADRESSE d'un texte Ã  afficher
 void EcrireXY (int x, int y, char *texte)
 {	// Je positionne le curseur
 	LCD_set_cursor (x, y);		
 	
-	// J'écris à l'écran
+	// J'Ã©cris Ã  l'Ã©cran
 	LCD_print (texte);
 }
 
 
 //*****************************************************************************
-// Ecriture d'un nombre réel à une position X, Y
-// Ecriture d'un nombre réel à une position X, Y
-// Reçoit 3 paramètres :
-//        - un entier x signifiant la position X sur l'écran
+// Ecriture d'un nombre rÃ©el Ã  une position X, Y
+// Ecriture d'un nombre rÃ©el Ã  une position X, Y
+// ReÃ§oit 3 paramÃ¨tres :
+//        - un entier x signifiant la position X sur l'Ã©cran
 //        - un entier y      "      "      "   Y  "     "
-//        - une valeur réelle (type "double") à afficher
+//        - une valeur rÃ©elle (type "double") Ã  afficher
 void EcrireReelXY (int x, int y, double valeur)
-{	char texte[40];     // "texte" tableau de 40 char, variable LOCALE à la fonction "EcrireReelXY"
+{	char texte[40];     // "texte" tableau de 40 char, variable LOCALE Ã  la fonction "EcrireReelXY"
 	
-	// J'écris la variable dans le tableau de char "texte",
+	// J'Ã©cris la variable dans le tableau de char "texte",
 	//	avec le format "%lf" ("long float", alias "double")
-	// la valeur reçue en paramètre
+	// la valeur reÃ§ue en paramÃ¨tre
 	sprintf (texte, "%lf", valeur);
 	
 	// Je positionne le curseur
 	LCD_set_cursor (x, y);		
 	
-	// Et j'écris le texte calculé sur l'écran du kit Keil
+	// Et j'Ã©cris le texte calculÃ© sur l'Ã©cran du kit Keil
 	LCD_print (texte);
 }
