@@ -4,7 +4,8 @@
  But		:	mettre en oeuvre les différentes ressources du kit de développement Keil MCBSTM32
             		Résolution de l'équation ax²+bx+c = 0
             		Affichage du résultat sur l'écran LCD du kit Keil
- Processeur : 	STM32F103RB (Arm Cortex M3, Flash 128Lo, Ram 20Ko)
+ Processeur 	: 	STM32F103RB (Arm Cortex M3, Flash 128Lo, Ram 20Ko)
+ 			(kit de développement Keil)
  Auteur		:	Joël Pétrique
  Date		:	novembre 2018
  Vérifié	:	mai 2019
