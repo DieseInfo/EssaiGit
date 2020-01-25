@@ -8,7 +8,7 @@
  			(kit de développement Keil)
  Auteur		:	Joël Pétrique
  Date		:	novembre 2018
- Vérifié	:	mai 2019
+ Vérifié	:	mai 2019 modifié 2020
 */
 
 
